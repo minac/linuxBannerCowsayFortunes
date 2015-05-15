@@ -1,0 +1,14 @@
+#!/bin/bash
+# Bash script to show random animals saying fortunes
+
+# array with expressions
+cowStyle=(apt duck unipony-smaller www)
+
+# seed random generator
+RANDOM=$$$(date +%s)
+
+# select cow style
+selectedCow=${cowStyle[$RANDOM % ${#cowStyle[@]} ]}
+
+# output short fortune with pre-specified cow
+/usr/games/fortune -s | /usr/games/cowsay -f $selectedCow
